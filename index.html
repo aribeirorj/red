@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Front End Test - Greenthumb</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./reset.css" type="text/css" />
+    <link rel="stylesheet" href="./index.scss" type="text/css" />
+    <script type="text/javascript">
+      function loadData(url) {
+        let data = '';
+
+        fetch(url)
+          .then((response) => (data = response.json()))
+          .then((data) => alert(JSON.stringify(data)))
+          .catch((err) => alert(err));
+      }
+
+      function loadUrl(answer) {
+        let answerList = { sun: 'no', water: 'regularly', pets: false };
+        answerList = { ...answerList, ...answer };
+
+        let url =
+          'https://front-br-challenges.web.app/api/v2/green-thumb/?sun=' +
+          answerList.sun +
+          '&water=' +
+          answerList.water +
+          '&pets=' +
+          answerList.pets;
+
+        loadData(url);
+      }
+    </script>
+  </head>
+
+  <body>
+    <header class="header">
+      <picture>
+        <source
+          srcset="./images/hero/mobile/hero.png"
+          media="(max-width: 767px)"
+        />
+        <source
+          srcset="./images/hero/desktop/hero.png"
+          media="(min-width: 768px)"
+        />
+        <img
+          src="./images/hero/desktop/hero.png"
+          alt="Find your next green friend"
+          class="hero"
+        />
+      </picture>
+
+      <div class="wrapper">
+        <div class="heading_img_label">
+          <img src="./images/hero/desktop/green_thumb_label.svg" />
+        </div>
+        <div class="heading_text_primary">Find your next green friend</div>
+        <div class="heading_img_arrow">
+          <img src="./images/icons/arrow-down.svg" />
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="wrapper">
+        <section class="section_filter">
+          <div class="list_card">
+            <div class="card">
+              <div class="card_img">
+                <img src="./images/illustrations/sun.svg" />
+              </div>
+              <div class="card_text">
+                <b>1.</b> Set the amount of <b>sunlight</b> your plant will get.
+              </div>
+              <select
+                class="card_select"
+                onchange="loadUrl({sun: event.target.value})"
+              >
+                <option value="0">Select...</option>
+                <option value="no">No</option>
+                <option value="low">Low</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+            <div class="card">
+              <div class="card_img">
+                <img src="./images/illustrations/wateringcan.svg" />
+              </div>
+              <div class="card_text">
+                <b>1.</b> Set the amount of <b>sunlight</b> your plant will get.
+              </div>
+              <select
+                class="card_select"
+                onchange="loadUrl({water: event.target.value})"
+              >
+                <option value="0">Select...</option>
+                <option value="regularly">regularly</option>
+                <option value="daily">daily</option>
+                <option value="rarely">rarely</option>
+              </select>
+            </div>
+            <div class="card">
+              <div class="card_img">
+                <img src="./images/illustrations/dog.svg" />
+              </div>
+              <div class="card_text">
+                <b>1.</b> Set the amount of <b>sunlight</b> your plant will get.
+              </div>
+              <select
+                class="card_select"
+                onchange="loadUrl({pets: event.target.value})"
+              >
+                <option value="0">Select...</option>
+                <option value="true">yes</option>
+                <option value="false">no</option>
+              </select>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="wrapper">
+        <div class="footer_noresult">
+          <div>
+            <div class="footer_noresult_title">No results yet…</div>
+            <div class="footer_noresult_subtitle">
+              Use the filters above to find the plant that best fits your
+              environment :)
+            </div>
+          </div>
+          <div class="footer_noresult_img">
+            <img src="./images/illustrations/no-results.svg" />
+          </div>
+        </div>
+        <div class="footer_list">
+          <div class="footer_list_img">
+            <img src="./images/illustrations/pick.svg" />
+          </div>
+          <div class="footer_list_label">Our picks for you</div>
+          <div class="container">
+            <div class="item1">
+              <div class="item_heading">
+                <img src="./images/illustrations/staff_fav.svg" />
+              </div>
+              <div class="item_main">
+                <img
+                  src="./images/plants/bunny-ears-cacti.svg"
+                  height="316"
+                  width="241"
+                />
+              </div>
+              <div class="item_footer">
+                <div class="item_footer_label">Bunny ears cacti</div>
+                <div>
+                  <div class="item_footer_value">$25</div>
+                  <div class="item_footer_icons">
+                    <img
+                      src="./images/icons/pet.svg"
+                      width="35px"
+                      height="26px"
+                    />
+                    <img
+                      src="./images/icons/low-sun.svg"
+                      width="35px"
+                      height="26px"
+                    />
+                    <img
+                      src="./images/icons/1-drop.svg"
+                      width="35px"
+                      height="26px"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="list" class="item2">2</div>
+            <div class="item3">3</div>
+            <div class="item4">4</div>
+            <div class="item5">5</div>
+            <div class="item6">6</div>
+            <div class="item7">7</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

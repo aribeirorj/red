@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 62.5%;
+  line-height: 1.7;
+  color: #ffff;
+}
+
+ol,
+ul {
+  list-style: none;
+}
